@@ -1,6 +1,3 @@
-# Gradient Gallery Page
-
-This is a code bundle for Gradient Gallery Page. The original project is available at [Figma](https://www.figma.com/design/lqI5WJBmwNbxEIO2kDTc4U/Gradient-Gallery-Page).
 
 ## 🚀 Getting Started
 
@@ -12,8 +9,8 @@ This is a code bundle for Gradient Gallery Page. The original project is availab
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/gradient-gallery-page.git
-   cd gradient-gallery-page
+   git clone https://github.com/your-username/ARTISTAN.git
+   cd ARTISTAN
    ```
 
 2. Install dependencies:
@@ -47,7 +44,7 @@ This project is set up for deployment to GitHub Pages:
 2. Push your code to the `main` branch
 3. Go to Settings > Pages
 4. Under "Source", select "GitHub Actions"
-5. The site will be deployed to: `https://<your-username>.github.io/Gradient-Gallery-Page/`
+5. The site will be deployed to: `https://<your-username>.github.io/ARTISTAN/`
 
 ### Manual Deployment
 
