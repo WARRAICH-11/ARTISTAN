@@ -1,6 +1,3 @@
-# Gradient Gallery Page
-
-This is a code bundle for Gradient Gallery Page. The original project is available at [Figma](https://www.figma.com/design/lqI5WJBmwNbxEIO2kDTc4U/Gradient-Gallery-Page).
 
 ## 🚀 Getting Started
 
