@@ -8,7 +8,7 @@ export default defineConfig(({ command, mode }) => {
   
   return {
     // This changes the base URL based on the environment
-    base: process.env.NODE_ENV === 'production' ? '/Gradient-Gallery-Page/' : '/',
+    base: process.env.NODE_ENV === 'production' ? '/ARTISTAN/' : '/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
