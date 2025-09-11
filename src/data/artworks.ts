@@ -59,7 +59,7 @@ export const artworks: ArtPiece[] = [
     artist: "Marcus Thompson",
     price: 7500,
     image:
-      "https://images.unsplash.com/photo-1750920362984-0a0d44d04577?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY3VscHR1cmUlMjBhcnQlMjBnYWxsZXJ5fGVufDF8fHx8MTc1NzUyNDUxMXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://github.com/MUGHAL-66/MYPORTFOLIO/blob/main/DSC_0111.jpg",
     category: "sculpture",
     description:
       "A contemporary sculpture that challenges perceptions of space, form, and material, creating a dialogue between tradition and innovation.",
