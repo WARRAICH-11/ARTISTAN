@@ -2,13 +2,11 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 
-export default defineConfig(({ command, mode }) => {
-  // Load env file based on `mode` in the current working directory.
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  
+
   return {
-    // This changes the base URL based on the environment
-    base: process.env.NODE_ENV === 'production' ? '/ARTISTAN/' : '/',
+    base: '/ARTISTAN/',   // ✅ hard-code to repo name
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
