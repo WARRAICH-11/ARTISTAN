@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import { Calendar, Users, Award, ArrowRight, MapPin, Clock } from 'lucide-react';
 import { Button } from './ui/button';
-import { Badge } from './ui/badge';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import React from 'react';
 
@@ -64,7 +63,7 @@ export function Portfolio() {
     },
     {
       id: 6,
-      title: 'Collector\'s Circle',
+      title: "Collector's Circle",
       category: 'Exclusive Showcase',
       description: 'Private collection showcase featuring rare acquisitions and first-time exhibitions from renowned international collectors.',
       image: 'https://images.unsplash.com/photo-1592537131333-2bee8853e5c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhYnN0cmFjdCUyMHBhaW50aW5nJTIwY2FudmFzfGVufDF8fHx8MTc1NzUyNDQ5OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
@@ -77,49 +76,46 @@ export function Portfolio() {
 
   const getStatusBadge = (status: string) => {
     const variants = {
-      'Current': 'bg-green-100 text-green-800',
-      'Upcoming': 'bg-blue-100 text-blue-800',
-      'Planning': 'bg-purple-100 text-purple-800',
-      'Past Success': 'bg-gray-100 text-gray-800',
-      'By Invitation': 'bg-yellow-100 text-yellow-800'
+      Current: 'bg-emerald-500/15 text-emerald-200 border border-emerald-400/30',
+      Upcoming: 'bg-sky-500/15 text-sky-200 border border-sky-400/30',
+      Planning: 'bg-violet-500/15 text-violet-200 border border-violet-400/30',
+      'Past Success': 'bg-slate-300/10 text-slate-200 border border-slate-400/20',
+      'By Invitation': 'bg-amber-500/15 text-amber-200 border border-amber-400/30'
     };
-    return variants[status as keyof typeof variants] || 'bg-gray-100 text-gray-800';
+    return variants[status as keyof typeof variants] || 'bg-slate-300/10 text-slate-200 border border-slate-400/20';
   };
 
   return (
-    <section id="exhibitions" className="py-24 bg-gradient-to-br from-gray-50 to-purple-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
+    <section id="exhibitions" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center space-x-2 mb-4"
+            className="mb-4 flex items-center justify-center gap-2 text-sm font-medium uppercase tracking-[0.24em] text-violet-300"
           >
-            <Calendar className="w-5 h-5 text-purple-600" />
-            <span className="text-sm font-medium text-purple-600 uppercase tracking-wider">
-              Exhibitions & Events
-            </span>
+            <Calendar className="h-4 w-4" />
+            <span>Exhibitions & Events</span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="mb-6 text-4xl font-black text-white md:text-5xl"
           >
             Curated
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-              {' '}Experiences
+            <span className="block bg-gradient-to-r from-amber-200 via-rose-300 to-violet-400 bg-clip-text text-transparent">
+              Experiences
             </span>
           </motion.h2>
 
@@ -128,15 +124,13 @@ export function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-lg text-gray-600"
+            className="text-lg leading-8 text-slate-300"
           >
-            From groundbreaking contemporary showcases to intimate masterwork exhibitions, 
-            each ARTISTAN event is thoughtfully curated to create meaningful connections between art and audience.
+            From groundbreaking contemporary showcases to intimate masterwork exhibitions, each AURELIA event is thoughtfully curated to create meaningful connections between art and audience.
           </motion.p>
         </motion.div>
 
-        {/* Exhibitions Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {exhibitions.map((exhibition, index) => (
             <motion.div
               key={exhibition.id}
@@ -144,103 +138,96 @@ export function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+              className="group overflow-hidden rounded-[1.7rem] border border-white/10 bg-slate-900/80 shadow-[0_20px_50px_rgba(15,23,42,0.45)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-400/30"
             >
-              {/* Exhibition Image */}
               <div className="relative overflow-hidden">
                 <ImageWithFallback
                   src={exhibition.image}
                   alt={exhibition.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="h-52 w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Status Badge */}
-                <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${getStatusBadge(exhibition.status)}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className={`absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] ${getStatusBadge(exhibition.status)}`}>
                   {exhibition.status}
                 </div>
 
-                <div className="absolute bottom-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <Calendar className="w-5 h-5 text-white" />
+                <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-slate-950/70 backdrop-blur-sm">
+                    <Calendar className="h-5 w-5 text-white" />
                   </div>
                 </div>
               </div>
 
-              {/* Exhibition Content */}
-              <div className="p-6 space-y-4">
+              <div className="space-y-4 p-6">
                 <div>
-                  <div className="text-sm text-purple-600 font-medium mb-2">{exhibition.category}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{exhibition.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{exhibition.description}</p>
+                  <div className="mb-2 text-sm font-medium text-violet-300">{exhibition.category}</div>
+                  <h3 className="mb-3 text-xl font-bold text-white">{exhibition.title}</h3>
+                  <p className="text-sm leading-6 text-slate-300">{exhibition.description}</p>
                 </div>
-                
-                {/* Event Details */}
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center text-gray-600">
-                    <Clock className="w-4 h-4 mr-2" />
+
+                <div className="space-y-2 text-sm text-slate-300">
+                  <div className="flex items-center">
+                    <Clock className="mr-2 h-4 w-4 text-violet-300" />
                     {exhibition.duration}
                   </div>
-                  <div className="flex items-center text-gray-600">
-                    <Users className="w-4 h-4 mr-2" />
+                  <div className="flex items-center">
+                    <Users className="mr-2 h-4 w-4 text-violet-300" />
                     {exhibition.attendees}
                   </div>
                 </div>
 
-                {/* Featured Artists */}
                 <div className="space-y-2">
-                  <div className="text-xs font-medium text-gray-700 uppercase tracking-wider">Featured Artists</div>
-                  <div className="flex flex-wrap gap-1">
+                  <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400">Featured Artists</div>
+                  <div className="flex flex-wrap gap-2">
                     {exhibition.featured.map((artist, artistIndex) => (
-                      <span
-                        key={artistIndex}
-                        className="px-2 py-1 bg-purple-50 text-xs text-purple-700 rounded-full"
-                      >
+                      <span key={artistIndex} className="rounded-full border border-violet-400/20 bg-violet-500/10 px-2 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-violet-200">
                         {artist}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Action Button */}
-                <Button 
-                  variant="outline" 
-                  className="w-full group-hover:bg-purple-600 group-hover:text-white transition-colors border-purple-200"
+                <Button
+                  variant="outline"
+                  className="w-full rounded-full border border-violet-400/30 bg-white/5 text-white transition-colors hover:bg-violet-500 hover:text-white"
                 >
-                  {exhibition.status === 'Current' ? 'Visit Exhibition' : 
-                   exhibition.status === 'Upcoming' ? 'Learn More' : 
-                   exhibition.status === 'Planning' ? 'Get Updates' : 
-                   exhibition.status === 'By Invitation' ? 'Request Access' : 'View Archive'}
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {exhibition.status === 'Current'
+                    ? 'Visit Exhibition'
+                    : exhibition.status === 'Upcoming'
+                      ? 'Learn More'
+                      : exhibition.status === 'Planning'
+                        ? 'Get Updates'
+                        : exhibition.status === 'By Invitation'
+                          ? 'Request Access'
+                          : 'View Archive'}
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center p-8 bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl border border-purple-200"
+          className="rounded-[2rem] border border-violet-400/20 bg-gradient-to-r from-violet-500/10 via-slate-900 to-sky-500/10 p-8 text-center shadow-[0_30px_80px_rgba(15,23,42,0.7)]"
         >
-          <Award className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Join Our Collector's Circle
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-md mx-auto">
+          <Award className="mx-auto mb-4 h-12 w-12 text-violet-300" />
+          <h3 className="mb-4 text-2xl font-bold text-white">Join Our Collector's Circle</h3>
+          <p className="mx-auto mb-6 max-w-md text-slate-300">
             Get exclusive access to private viewings, artist talks, and first access to new acquisitions.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="px-8 bg-gradient-to-r from-purple-600 to-blue-600">
-              <MapPin className="mr-2 w-5 h-5" />
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Button size="lg" className="rounded-full bg-gradient-to-r from-amber-200 via-rose-300 to-violet-500 px-8 text-slate-950 shadow-[0_0_25px_rgba(244,114,182,0.3)]">
+              <MapPin className="mr-2 h-5 w-5" />
               Join Collector's Circle
             </Button>
-            <Button size="lg" variant="outline" className="px-8 border-2 border-purple-600 text-purple-600">
+            <Button size="lg" variant="outline" className="rounded-full border border-violet-400/30 bg-white/5 px-8 text-white hover:bg-white/10">
               View All Events
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </motion.div>

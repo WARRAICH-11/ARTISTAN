@@ -40,27 +40,26 @@ function AppContent() {
         );
       case 'artists':
         return (
-          <div className="pt-20 min-h-screen bg-gray-50">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+          <div className="pt-20 min-h-screen bg-[#070b14]">
+            <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
               <div className="text-center">
-                <h1 className="text-4xl font-bold text-gray-900 mb-6">Featured Artists</h1>
-                <p className="text-xl text-gray-600 mb-8">Meet the talented artists whose work graces our collection</p>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {/* Artist profiles would go here */}
-                  <div className="bg-white rounded-2xl p-6 shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">Marina Delacroix</h3>
-                    <p className="text-purple-600 mb-4">Abstract Expressionist</p>
-                    <p className="text-gray-600">Known for her ethereal color compositions that transcend traditional boundaries.</p>
+                <h1 className="mb-6 text-4xl font-bold text-white">Featured Artists</h1>
+                <p className="mb-8 text-xl text-slate-300">Meet the talented artists whose work graces our collection</p>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="glass-card rounded-[1.5rem] p-6">
+                    <h3 className="mb-2 text-xl font-bold text-white">Marina Delacroix</h3>
+                    <p className="mb-4 text-violet-300">Abstract Expressionist</p>
+                    <p className="text-slate-300">Known for her ethereal color compositions that transcend traditional boundaries.</p>
                   </div>
-                  <div className="bg-white rounded-2xl p-6 shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">Alessandro Rosetti</h3>
-                    <p className="text-purple-600 mb-4">Landscape Master</p>
-                    <p className="text-gray-600">Captures the profound beauty of nature with masterful oil painting techniques.</p>
+                  <div className="glass-card rounded-[1.5rem] p-6">
+                    <h3 className="mb-2 text-xl font-bold text-white">Alessandro Rosetti</h3>
+                    <p className="mb-4 text-violet-300">Landscape Master</p>
+                    <p className="text-slate-300">Captures the profound beauty of nature with masterful oil painting techniques.</p>
                   </div>
-                  <div className="bg-white rounded-2xl p-6 shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">Victoria Blackwood</h3>
-                    <p className="text-purple-600 mb-4">Portrait Artist</p>
-                    <p className="text-gray-600">Creates stunning classical portraits that capture the essence of human grace.</p>
+                  <div className="glass-card rounded-[1.5rem] p-6">
+                    <h3 className="mb-2 text-xl font-bold text-white">Victoria Blackwood</h3>
+                    <p className="mb-4 text-violet-300">Portrait Artist</p>
+                    <p className="text-slate-300">Creates stunning classical portraits that capture the essence of human grace.</p>
                   </div>
                 </div>
               </div>
@@ -83,11 +82,11 @@ function AppContent() {
         return <ShoppingCart />;
       case 'checkout':
         return (
-          <div className="min-h-screen bg-gray-50 pt-20">
-            <div className="max-w-4xl mx-auto px-6 lg:px-8 py-16">
-              <h1 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
-              <div className="bg-white rounded-2xl p-8 shadow-sm">
-                <p className="text-center text-gray-600">Secure checkout system would be implemented here.</p>
+          <div className="min-h-screen bg-[#070b14] pt-20">
+            <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8">
+              <h1 className="mb-8 text-3xl font-bold text-white">Checkout</h1>
+              <div className="glass-card rounded-[1.5rem] p-8">
+                <p className="text-center text-slate-300">Secure checkout system would be implemented here.</p>
               </div>
             </div>
           </div>
@@ -107,9 +106,11 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative min-h-screen bg-[#050816] text-slate-100 antialiased selection:bg-fuchsia-500/40">
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.14),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(59,130,246,0.12),_transparent_30%)]" />
+      <div className="pointer-events-none fixed inset-x-0 top-0 h-96 bg-[radial-gradient(circle,_rgba(251,191,36,0.12),_transparent_50%)]" />
       <Header />
-      {renderPage()}
+      <main className="relative z-10">{renderPage()}</main>
     </div>
   );
 }

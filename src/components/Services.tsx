@@ -15,7 +15,7 @@ export function Services() {
       features: ['Modern Abstract', 'Color Studies', 'Geometric Forms', 'Textural Works'],
       image: 'https://images.unsplash.com/photo-1592537131333-2bee8853e5c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhYnN0cmFjdCUyMHBhaW50aW5nJTIwY2FudmFzfGVufDF8fHx8MTc1NzUyNDQ5OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       count: '150+ Pieces',
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'from-violet-500 to-fuchsia-500'
     },
     {
       icon: Camera,
@@ -24,7 +24,7 @@ export function Services() {
       features: ['Oil Paintings', 'Watercolors', 'Digital Landscapes', 'Photorealistic'],
       image: 'https://images.unsplash.com/photo-1701979396436-7d2107f65ca7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvaWwlMjBwYWludGluZyUyMGxhbmRzY2FwZSUyMGFydHxlbnwxfHx8fDE3NTc1MjQ1MDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       count: '90+ Pieces',
-      gradient: 'from-blue-500 to-teal-500'
+      gradient: 'from-sky-500 to-cyan-500'
     },
     {
       icon: Brush,
@@ -33,7 +33,7 @@ export function Services() {
       features: ['Mixed Media', 'Installation Art', 'Digital Creations', 'Experimental'],
       image: 'https://images.unsplash.com/photo-1579519397415-ef409ed831ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwbXVzZXVtfGVufDF8fHx8MTc1NzUyNDUwNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       count: '200+ Pieces',
-      gradient: 'from-teal-500 to-green-500'
+      gradient: 'from-emerald-500 to-teal-500'
     },
     {
       icon: Shapes,
@@ -42,41 +42,40 @@ export function Services() {
       features: ['Bronze Sculptures', 'Modern Forms', 'Interactive Pieces', 'Kinetic Art'],
       image: 'https://images.unsplash.com/photo-1750920362984-0a0d44d04577?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY3VscHR1cmUlMjBhcnQlMjBnYWxsZXJ5fGVufDF8fHx8MTc1NzUyNDUxMXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       count: '60+ Pieces',
-      gradient: 'from-green-500 to-yellow-500'
+      gradient: 'from-amber-400 to-orange-500'
     }
   ];
 
   return (
-    <section id="collections" className="py-24 bg-gradient-to-br from-gray-50 to-purple-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
+    <section id="collections" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-sm font-medium text-purple-600 uppercase tracking-wider mb-4"
+            className="mb-4 text-sm font-medium uppercase tracking-[0.24em] text-violet-300"
           >
             Featured Collections
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="mb-6 text-4xl font-black text-white md:text-5xl"
           >
             Explore Our
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-              {' '}Curated Collections
+            <span className="block bg-gradient-to-r from-amber-200 via-rose-300 to-violet-400 bg-clip-text text-transparent">
+              Curated Collections
             </span>
           </motion.h2>
 
@@ -85,15 +84,13 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-lg text-gray-600"
+            className="text-lg leading-8 text-slate-300"
           >
-            Discover our carefully curated collections, each representing a unique artistic journey 
-            and offering pieces that speak to different aesthetic sensibilities.
+            Discover our carefully curated collections, each representing a unique artistic journey and offering pieces that speak to different aesthetic sensibilities.
           </motion.p>
         </motion.div>
 
-        {/* Collections Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid gap-8 md:grid-cols-2">
           {collections.map((collection, index) => {
             const Icon = collection.icon;
             return (
@@ -103,55 +100,49 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="group overflow-hidden rounded-[1.8rem] border border-white/10 bg-slate-900/80 shadow-[0_25px_60px_rgba(15,23,42,0.52)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-400/35"
               >
-                {/* Image Header */}
                 <div className="relative h-64 overflow-hidden">
                   <ImageWithFallback
                     src={collection.image}
                     alt={collection.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  
-                  {/* Floating Icon */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+
                   <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className={`absolute top-4 right-4 w-12 h-12 bg-gradient-to-r ${collection.gradient} rounded-xl flex items-center justify-center shadow-lg`}
+                    whileHover={{ scale: 1.08, rotate: 4 }}
+                    className={`absolute right-4 top-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r ${collection.gradient} shadow-[0_10px_25px_rgba(15,23,42,0.35)]`}
                   >
-                    <Icon className="w-6 h-6 text-white" />
+                    <Icon className="h-5 w-5 text-white" />
                   </motion.div>
 
-                  {/* Count Badge */}
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                    <span className="text-sm font-semibold text-gray-900">{collection.count}</span>
+                  <div className="absolute bottom-4 left-4 rounded-full border border-white/15 bg-slate-950/70 px-3 py-1 backdrop-blur-md">
+                    <span className="text-sm font-semibold text-white">{collection.count}</span>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-8 space-y-6">
+                <div className="space-y-6 p-8">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{collection.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{collection.description}</p>
+                    <h3 className="mb-3 text-2xl font-bold text-white">{collection.title}</h3>
+                    <p className="leading-7 text-slate-300">{collection.description}</p>
                   </div>
 
-                  {/* Features */}
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-3">
                     {collection.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-sm text-gray-600">
-                        <div className={`w-2 h-2 bg-gradient-to-r ${collection.gradient} rounded-full mr-2`} />
+                      <div key={featureIndex} className="flex items-center text-sm text-slate-300">
+                        <div className={`mr-2 h-2 w-2 rounded-full bg-gradient-to-r ${collection.gradient}`} />
                         {feature}
                       </div>
                     ))}
                   </div>
 
-                  {/* CTA */}
-                  <Button 
-                    className={`w-full bg-gradient-to-r ${collection.gradient} hover:opacity-90 transition-opacity group-hover:scale-[1.02] transition-transform`}
+                  <Button
+                    className={`w-full rounded-full bg-gradient-to-r ${collection.gradient} px-6 text-white shadow-[0_15px_30px_rgba(168,85,247,0.25)] hover:brightness-110`}
                     onClick={() => setCurrentPage('gallery')}
                   >
                     Explore Collection
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
               </motion.div>
@@ -159,27 +150,24 @@ export function Services() {
           })}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mt-16 p-8 bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl border border-purple-200"
+          className="mt-16 rounded-[2rem] border border-violet-400/20 bg-gradient-to-r from-violet-500/10 via-slate-900 to-sky-500/10 p-8 text-center shadow-[0_30px_80px_rgba(15,23,42,0.7)]"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Looking for Something Specific?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-md mx-auto">
+          <h3 className="mb-4 text-2xl font-bold text-white">Looking for Something Specific?</h3>
+          <p className="mx-auto mb-6 max-w-md text-slate-300">
             Our expert curators are here to help you find the perfect piece for your space and style.
           </p>
-          <Button 
-            size="lg" 
-            className="px-8 bg-gradient-to-r from-purple-600 to-blue-600"
+          <Button
+            size="lg"
+            className="rounded-full bg-gradient-to-r from-amber-200 via-rose-300 to-violet-500 px-8 text-slate-950 shadow-[0_0_30px_rgba(244,114,182,0.3)]"
             onClick={() => setCurrentPage('contact')}
           >
             Consult with Our Curators
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
       </div>

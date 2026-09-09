@@ -13,9 +13,7 @@ export function ArtGallery() {
   const [hoveredArt, setHoveredArt] = useState<string | null>(null);
   const { addToCart } = useShoppingCart();
 
-  const filteredArtworks = selectedCategory === 'all' 
-    ? artworks 
-    : artworks.filter(art => art.category === selectedCategory);
+  const filteredArtworks = selectedCategory === 'all' ? artworks : artworks.filter((art) => art.category === selectedCategory);
 
   const handleAddToCart = (artwork: ArtPiece, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -23,57 +21,53 @@ export function ArtGallery() {
   };
 
   return (
-    <section id="gallery" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
+    <section id="gallery" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-4xl font-black text-white md:text-5xl">
             Curated Art
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-              {' '}Collection
+            <span className="block bg-gradient-to-r from-amber-200 via-rose-300 to-violet-400 bg-clip-text text-transparent">
+              Collection
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover extraordinary pieces from renowned artists and emerging talents, 
-            each carefully selected for their unique vision and exceptional craftsmanship.
+          <p className="mx-auto max-w-3xl text-xl leading-8 text-slate-300">
+            Discover extraordinary pieces from renowned artists and emerging talents, each carefully selected for their unique vision and exceptional craftsmanship.
           </p>
         </motion.div>
 
-        {/* Category Filter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-16"
+          className="mb-16 flex flex-wrap items-center justify-center gap-3"
         >
-          <Filter className="w-5 h-5 text-gray-400 mr-2" />
+          <Filter className="mr-2 h-5 w-5 text-slate-400" />
           {categories.map((category) => (
             <Button
               key={category.id}
-              variant={selectedCategory === category.id ? "default" : "outline"}
+              variant={selectedCategory === category.id ? 'default' : 'outline'}
               onClick={() => setSelectedCategory(category.id)}
               className={`${
-                selectedCategory === category.id 
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white' 
-                  : 'hover:bg-purple-50'
+                selectedCategory === category.id
+                  ? 'rounded-full bg-gradient-to-r from-amber-200 via-rose-300 to-violet-500 text-slate-950 shadow-[0_0_20px_rgba(244,114,182,0.3)]'
+                  : 'rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10'
               }`}
             >
               {category.name}
-              <Badge variant="secondary" className="ml-2">
+              <Badge variant="secondary" className="ml-2 bg-slate-900/80 text-slate-100">
                 {category.count}
               </Badge>
             </Button>
           ))}
         </motion.div>
 
-        {/* Art Grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedCategory}
@@ -81,7 +75,7 @@ export function ArtGallery() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
             {filteredArtworks.map((artwork, index) => (
               <motion.div
@@ -89,74 +83,59 @@ export function ArtGallery() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="group relative overflow-hidden rounded-[1.7rem] border border-white/10 bg-slate-900/80 shadow-[0_20px_60px_rgba(15,23,42,0.5)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-400/35"
                 onMouseEnter={() => setHoveredArt(artwork.id)}
                 onMouseLeave={() => setHoveredArt(null)}
               >
-                {/* Image Container */}
-                <div className="relative overflow-hidden aspect-[4/5]">
+                <div className="relative aspect-[4/5] overflow-hidden">
                   <ImageWithFallback
                     src={artwork.image}
                     alt={artwork.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  
-                  {/* Overlay */}
+
                   <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ 
-                      opacity: hoveredArt === artwork.id ? 1 : 0 
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-black/40 flex items-center justify-center space-x-4"
+                    animate={{ opacity: hoveredArt === artwork.id ? 1 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute inset-0 flex items-center justify-center gap-3 bg-slate-950/45"
                   >
-                    <Button size="sm" variant="secondary" className="backdrop-blur-sm bg-white/90">
-                      <Eye className="w-4 h-4 mr-2" />
+                    <Button size="sm" variant="secondary" className="rounded-full bg-white/90 text-slate-900 backdrop-blur-sm">
+                      <Eye className="mr-2 h-4 w-4" />
                       Quick View
                     </Button>
-                    <Button size="sm" variant="secondary" className="backdrop-blur-sm bg-white/90">
-                      <Heart className="w-4 h-4" />
+                    <Button size="sm" variant="secondary" className="rounded-full bg-white/90 text-slate-900 backdrop-blur-sm">
+                      <Heart className="h-4 w-4" />
                     </Button>
                   </motion.div>
 
-                  {/* 3D Floating Price Tag */}
                   <motion.div
                     initial={{ scale: 0, rotate: -45 }}
-                    animate={{ 
-                      scale: hoveredArt === artwork.id ? 1 : 0.8,
-                      rotate: hoveredArt === artwork.id ? 0 : -45
-                    }}
-                    className="absolute top-4 right-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-lg shadow-lg transform-gpu"
+                    animate={{ scale: hoveredArt === artwork.id ? 1 : 0.8, rotate: hoveredArt === artwork.id ? 0 : -45 }}
+                    className="absolute right-4 top-4 rounded-xl bg-gradient-to-r from-amber-200 via-rose-300 to-violet-500 px-3 py-2 text-sm font-black text-slate-950 shadow-[0_15px_30px_rgba(244,114,182,0.3)]"
                   >
-                    <span className="font-bold">${artwork.price.toLocaleString()}</span>
+                    <span>${artwork.price.toLocaleString()}</span>
                   </motion.div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 space-y-4">
+                <div className="space-y-4 p-6">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">
-                      {artwork.title}
-                    </h3>
-                    <p className="text-purple-600 font-medium">
-                      by {artwork.artist}
-                    </p>
+                    <h3 className="mb-1 text-xl font-bold text-white">{artwork.title}</h3>
+                    <p className="text-sm font-medium text-violet-300">by {artwork.artist}</p>
                   </div>
 
-                  <p className="text-gray-600 text-sm line-clamp-2">
-                    {artwork.description}
-                  </p>
+                  <p className="line-clamp-2 text-sm leading-6 text-slate-300">{artwork.description}</p>
 
-                  <div className="flex items-center justify-between text-sm text-gray-500">
+                  <div className="flex items-center justify-between text-sm text-slate-400">
                     <span>{artwork.medium}</span>
                     <span>{artwork.dimensions}</span>
                   </div>
 
-                  <Button 
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 group"
+                  <Button
+                    className="w-full rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-[0_15px_30px_rgba(99,102,241,0.35)] hover:brightness-110"
                     onClick={(e) => handleAddToCart(artwork, e)}
                   >
-                    <ShoppingBag className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                    <ShoppingBag className="mr-2 h-4 w-4" />
                     Add to Collection
                   </Button>
                 </div>
@@ -165,20 +144,18 @@ export function ArtGallery() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Load More */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="mt-16 text-center"
         >
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="px-8 py-4"
+          <Button
+            size="lg"
+            variant="outline"
+            className="rounded-full border border-white/10 bg-white/5 px-8 py-5 text-base font-semibold text-white hover:bg-white/10"
             onClick={() => {
-              // In a real app, this would load more artworks
               alert('Loading more artworks... (Feature would be implemented with pagination)');
             }}
           >
